@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClearGate - Student Clearance Portal</title>
+  <link rel="icon" href="/assets/cleargate-logo.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="auth">
+  <section class="brand-panel">
+    <div class="logo-badge">
+      <img src="/assets/cleargate-logo.png" alt="ClearGate">
+    </div>
+    <h1 class="tagline">Your clearance,<br>all in one place.</h1>
+    <ul class="features">
+      <li><span class="tile"><span class="ico" data-icon="checklist"></span></span>
+        <div><b>One clear checklist</b><small>See every office requirement and its latest status.</small></div></li>
+      <li><span class="tile"><span class="ico" data-icon="bell"></span></span>
+        <div><b>Know what needs action</b><small>Get a clear next step whenever an item needs you.</small></div></li>
+      <li><span class="tile"><span class="ico" data-icon="shield"></span></span>
+        <div><b>Records you can trust</b><small>Verified updates come directly from your school offices.</small></div></li>
+    </ul>
+    <p class="copyright">&copy; Immaculada Conception College &middot; Student Clearance Portal</p>
+  </section>
+
+  <section class="form-panel">
+    <div class="glass">
+      <div class="card-brand">
+        <div><b>ClearGate</b><small>Student Clearance Portal</small></div>
+      </div>
+      <p class="eyebrow">Student Clearance Management System</p>
+
+      <!-- Step 1: sign in -->
+      <form id="step-login" novalidate>
+        <h2>Welcome back</h2>
+        <p class="sub">Sign in to continue your clearance journey.</p>
+        <label for="identifier">Student ID</label>
+        <input class="field" id="identifier" type="text" placeholder="Student ID / Email" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input class="field" id="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+        <div class="row">
+          <label class="check"><input type="checkbox" id="remember"><span class="dot"></span>Remember me</label>
+          <button type="button" class="link" data-goto="email">Forgot Password?</button>
+        </div>
+        <p class="form-error" role="alert"></p>
+        <button class="btn-glass" type="submit">Login <span class="ico" data-icon="arrow"></span></button>
+        <p class="auth-switch">New student? <button type="button" class="link" data-goto="signup">Create an account</button></p>
+      </form>
+
+      <form id="step-signup" novalidate hidden>
+        <h2>Create account</h2>
+        <p class="sub">Register your student details to get started.</p>
+        <label for="signup-student-no">Student ID</label>
+        <input class="field" id="signup-student-no" type="text" maxlength="40" autocomplete="username" required>
+        <label for="signup-email">Student email</label>
+        <input class="field" id="signup-email" type="email" maxlength="120" autocomplete="email" required>
+        <label for="signup-name">Full name</label>
+        <input class="field" id="signup-name" type="text" maxlength="120" autocomplete="name" required>
+        <label for="signup-course">Course and year</label>
+        <input class="field" id="signup-course" type="text" maxlength="120" placeholder="e.g. 2nd Year, BSIT" required>
+        <label for="signup-year">Academic year</label>
+        <input class="field" id="signup-year" type="text" maxlength="40" value="A.Y 2026 - 2027" required>
+        <label for="signup-password">Password</label>
+        <input class="field" id="signup-password" type="password" minlength="8" maxlength="200" autocomplete="new-password" required>
+        <label for="signup-confirm">Confirm password</label>
+        <input class="field" id="signup-confirm" type="password" minlength="8" maxlength="200" autocomplete="new-password" required>
+        <p class="form-error" role="alert"></p>
+        <button class="btn-glass" type="submit">Create account</button>
+        <p class="auth-switch">Already registered? <button type="button" class="link" data-goto="login">Back to login</button></p>
+      </form>
+
+      <!-- Step 2: email + verification code -->
+      <form id="step-email" novalidate hidden>
+        <h2>Forgot password</h2>
+        <label class="gap" for="fp-email">Enter Student Email</label>
+        <input class="field" id="fp-email" type="email" placeholder="Enter Student Email" autocomplete="email" required>
+        <div class="label-row">
+          <label for="fp-code">Request Verification</label>
+          <button type="button" class="link" id="send-code">Send code</button>
+        </div>
+        <input class="field" id="fp-code" type="text" inputmode="numeric" maxlength="6" placeholder="Verification Code" autocomplete="one-time-code" required>
+        <p class="form-hint" id="code-hint" hidden></p>
+        <p class="form-error" role="alert"></p>
+        <button class="btn-glass" type="submit">Continue</button>
+        <div class="row" style="margin-top:16px"><button type="button" class="link" data-goto="login">Back to login</button></div>
+      </form>
+
+      <!-- Step 3: new password -->
+      <form id="step-reset" novalidate hidden>
+        <h2>Forgot password</h2>
+        <label class="gap" for="np1">Set up new Password</label>
+        <input class="field" id="np1" type="password" placeholder="Enter your new password" autocomplete="new-password" required>
+        <label for="np2">Re-enter your Password</label>
+        <input class="field" id="np2" type="password" placeholder="Enter your new password" autocomplete="new-password" required>
+        <p class="form-error" role="alert"></p>
+        <button class="btn-glass" type="submit">Continue</button>
+      </form>
+
+      <!-- Step 4: done -->
+      <div id="step-done" hidden>
+        <div class="notice">You are all set, click continue to go to the Main page.</div>
+        <button class="btn-glass" type="button" id="go-main">Continue</button>
+      </div>
+    </div>
+  </section>
+</div>
+<script src="/icons.js"></script>
+<script src="/auth.js"></script>
+</body>
+</html>

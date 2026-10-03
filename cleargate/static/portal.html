@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClearGate - Student Clearance Portal</title>
+  <link rel="icon" href="/assets/cleargate-logo.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <p class="side-label">Student Portal</p>
+    <p class="side-title">CLEARGATE</p>
+    <nav class="nav" aria-label="Main">
+      <a href="#/dashboard" data-view="dashboard"><span class="ico" data-icon="dashboard"></span>Dashboard</a>
+      <a href="#/requirements" data-view="requirements"><span class="ico" data-icon="clipboard"></span>My Requirements</a>
+      <a href="#/status" data-view="status"><span class="ico" data-icon="folder"></span>Clearance Status</a>
+      <button type="button" id="logout"><span class="ico" data-icon="user"></span>Log Out</button>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <label class="search">
+        <span class="ico" data-icon="search"></span>
+        <input id="search" type="search" placeholder="Search" aria-label="Search this page">
+      </label>
+      <button type="button" class="bell" id="bell" aria-label="Notifications"><span class="ico" data-icon="bell"></span><i class="dot" hidden></i></button>
+      <div class="user-wrap">
+        <button type="button" class="user" id="user" aria-haspopup="menu" aria-expanded="false">
+          <span class="avatar" id="avatar"></span>
+          <span class="who"><b id="uname"></b><small>Student</small></span>
+          <span class="ico chev" data-icon="chevron"></span>
+        </button>
+        <div class="menu" id="menu" role="menu" hidden><button type="button" id="logout2" role="menuitem">Log out</button></div>
+      </div>
+    </header>
+
+    <section id="view-dashboard" class="view" hidden></section>
+    <section id="view-requirements" class="view" hidden></section>
+    <section id="view-status" class="view" hidden></section>
+  </main>
+</div>
+
+<dialog id="detail" aria-labelledby="detail-title"></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="/icons.js"></script>
+<script src="/portal.js"></script>
+</body>
+</html>
